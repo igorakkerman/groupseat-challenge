@@ -12,16 +12,18 @@ class GroupSeat {
         }
 
         private fun rowGroupsCount(row: Int, reservations: Set<String>): Int {
-            val leftGroup = arrayOf(seat(row, 'B'), seat(row, 'C'), seat(row, 'D'), seat(row, 'E'))
-            val middleGroup = arrayOf(seat(row, 'D'), seat(row, 'E'), seat(row, 'F'), seat(row, 'G'))
-            val rightGroup = arrayOf(seat(row, 'F'), seat(row, 'G'), seat(row, 'H'), seat(row, 'J'))
+            val left = group(row, 'B', 'C', 'D', 'E')
+            val middle = group(row, 'D', 'E', 'F', 'G')
+            val right = group(row, 'F', 'G', 'H', 'J')
 
-            return if (free(reservations, leftGroup) && free(reservations, rightGroup)) 2
-            else if (free(reservations, leftGroup) || free(reservations, middleGroup) || free(reservations, rightGroup)) 1
+            return if (free(reservations, left) && free(reservations, right)) 2
+            else if (free(reservations, left) || free(reservations, middle) || free(reservations, right)) 1
             else 0
         }
 
-        private fun seat(rowNumber: Int, seatLetter: Char) = "${rowNumber}${seatLetter}"
+        private fun seat(rowNumber: Int, seatLetter: Char): String = "${rowNumber}${seatLetter}"
+
+        private fun group(row: Int, s1: Char, s2: Char, s3: Char, s4: Char): Array<String> = arrayOf(s1, s2, s3, s4).map { seat(row, it) }.toTypedArray()
 
         private fun free(reservations: Collection<String>, group: Array<String>): Boolean =
                 !group.any { reservations.contains(it) }
