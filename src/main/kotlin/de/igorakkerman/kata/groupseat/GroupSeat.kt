@@ -6,7 +6,7 @@ class GroupSeat {
 
             val reservations = reservationText.split(" ").toSet()
 
-            return IntRange(1, rowsCount)
+            return (1..rowsCount)
                     .map { rowNumber -> rowGroupsCount(rowNumber, reservations) }
                     .sum()
         }
