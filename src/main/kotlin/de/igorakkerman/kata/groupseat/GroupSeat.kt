@@ -4,7 +4,7 @@ class GroupSeat {
     companion object {
         fun groupSeats(rowsCount: Int, reservationText: String): Int {
 
-            val reservations = reservationText.split(" ").toSet()
+            val reservations: Set<String> = reservationText.split(" ").toSet()
 
             return (1..rowsCount)
                     .map { rowNumber -> rowGroupsCount(rowNumber, reservations) }
