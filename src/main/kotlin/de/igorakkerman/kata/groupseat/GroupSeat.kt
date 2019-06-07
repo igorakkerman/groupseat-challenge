@@ -16,9 +16,12 @@ class GroupSeat {
             val middle = group(row, 'D', 'E', 'F', 'G')
             val right = group(row, 'F', 'G', 'H', 'J')
 
-            return if (free(reservations, left) && free(reservations, right)) 2
-            else if (free(reservations, left) || free(reservations, middle) || free(reservations, right)) 1
-            else 0
+            return if (free(reservations, left) && free(reservations, right))
+                2
+            else if (free(reservations, left) || free(reservations, middle) || free(reservations, right))
+                1
+            else
+                0
         }
 
         private fun seat(rowNumber: Int, seatLetter: Char): String =
