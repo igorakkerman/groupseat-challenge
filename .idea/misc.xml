@@ -23,6 +23,9 @@
     </option>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="JavaScriptSettings">
+    <option name="languageLevel" value="ES6" />
+  </component>
   <component name="Michael.U.Bergens.CopyNixDirPlugin">
     <option name="replaceWith" value="" />
     <option name="search" value="" />

@@ -21,11 +21,13 @@ class GroupSeat {
             else 0
         }
 
-        private fun seat(rowNumber: Int, seatLetter: Char): String = "${rowNumber}${seatLetter}"
+        private fun seat(rowNumber: Int, seatLetter: Char): String =
+            "${rowNumber}${seatLetter}"
 
-        private fun group(row: Int, s1: Char, s2: Char, s3: Char, s4: Char): Array<String> = arrayOf(s1, s2, s3, s4).map { seat(row, it) }.toTypedArray()
+        private fun group(row: Int, s1: Char, s2: Char, s3: Char, s4: Char): Array<String> =
+            arrayOf(s1, s2, s3, s4).map { seat(row, it) }.toTypedArray()
 
         private fun free(reservations: Collection<String>, group: Array<String>): Boolean =
-                !group.any { reservations.contains(it) }
+            !group.any { reservations.contains(it) }
     }
 }
